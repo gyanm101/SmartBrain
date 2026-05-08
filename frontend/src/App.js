@@ -53,10 +53,18 @@ class App extends Component {
   }
 
   calculateFaceLocation = (data) => {
-    const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
+    const regions = data.outputs?.[0]?.data?.regions;
+
+    if (!regions || regions.length === 0) {
+      console.log("No face regions found:", data);
+      return {};
+    }
+
+    const clarifaiFace = regions[0].region_info.bounding_box;
     const image = document.getElementById('inputimage');
     const width = Number(image.width);
     const height = Number(image.height);
+
     return {
       leftCol: clarifaiFace.left_col * width,
       topRow: clarifaiFace.top_row * height,
@@ -99,8 +107,11 @@ class App extends Component {
             .catch(console.log)
 
         }
-        this.displayFaceBox(this.calculateFaceLocation(response))
-      })
+        const box = this.calculateFaceLocation(response);
+        if (box.leftCol !== undefined) {
+          this.displayFaceBox(box);
+        }
+       })
       .catch(err => console.log(err));
   }
 

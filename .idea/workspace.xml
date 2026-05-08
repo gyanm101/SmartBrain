@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="30d7d60f-3e66-432d-8afd-4a202a921877" name="Changes" comment="Migrate to Clarifai REST API and fix face detection pipeline">
+      <change beforePath="$PROJECT_DIR$/backend/controllers/image.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/image.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/.bin/nodemon" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/.bin/nodemon" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/axios/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/axios/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/axios/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/axios/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/axios/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/axios/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/axios/UPGRADE_GUIDE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/axios/dist/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/axios/dist/axios.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/axios/dist/axios.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/axios/dist/axios.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/axios/dist/axios.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/axios/dist/axios.min.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/axios/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/axios/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/axios/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/axios/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/axios/lib/adapters/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/axios/lib/adapters/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/axios/lib/adapters/http.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/axios/lib/adapters/http.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/axios/lib/adapters/xhr.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/axios/lib/adapters/xhr.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/axios/lib/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/axios/lib/axios.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/axios/lib/cancel/Cancel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/axios/lib/cancel/CancelToken.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/axios/lib/cancel/CancelToken.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/axios/lib/cancel/isCancel.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/axios/lib/cancel/isCancel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/axios/lib/core/Axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/axios/lib/core/Axios.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/axios/lib/core/InterceptorManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/axios/lib/core/InterceptorManager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/axios/lib/core/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/axios/lib/core/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/axios/lib/core/buildFullPath.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/axios/lib/core/buildFullPath.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/axios/lib/core/createError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/axios/lib/core/dispatchRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/axios/lib/core/dispatchRequest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/axios/lib/core/enhanceError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/axios/lib/core/mergeConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/axios/lib/core/mergeConfig.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/axios/lib/core/settle.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/axios/lib/core/settle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/axios/lib/core/transformData.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/axios/lib/core/transformData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/axios/lib/defaults.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/axios/lib/helpers/bind.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/axios/lib/helpers/bind.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/axios/lib/helpers/buildURL.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/axios/lib/helpers/buildURL.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/axios/lib/helpers/combineURLs.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/axios/lib/helpers/combineURLs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/axios/lib/helpers/cookies.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/axios/lib/helpers/cookies.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/axios/lib/helpers/deprecatedMethod.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/axios/lib/helpers/deprecatedMethod.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/axios/lib/helpers/isAbsoluteURL.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/axios/lib/helpers/isAbsoluteURL.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/axios/lib/helpers/isURLSameOrigin.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/axios/lib/helpers/isURLSameOrigin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/axios/lib/helpers/normalizeHeaderName.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/axios/lib/helpers/parseHeaders.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/axios/lib/helpers/parseHeaders.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/axios/lib/helpers/spread.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/axios/lib/helpers/spread.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/axios/lib/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/axios/lib/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/axios/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/axios/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/follow-redirects/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/follow-redirects/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/follow-redirects/debug.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/follow-redirects/debug.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/follow-redirects/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/follow-redirects/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/follow-redirects/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/follow-redirects/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;gyanm101&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/gyanm101/SmartBrain.git&quot;,
+    &quot;accountId&quot;: &quot;ead847ab-f172-4047-b9ce-0a67a2aa6279&quot;
+  }
+}</component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="3DGdgNEcK9T8XDUna52hPkXAq4k" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/gyanmohanty/Documents/projects/SmartBrain&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-26cb7f24e5b0-intellij.indexing.shared.core-IU-253.29346.240" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="30d7d60f-3e66-432d-8afd-4a202a921877" name="Changes" comment="" />
+      <created>1777912452193</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1777912452193</updated>
+      <workItem from="1777912454317" duration="6000" />
+    </task>
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Migrate to Clarifai REST API and fix face detection pipeline" />
+    <option name="LAST_COMMIT_MESSAGE" value="Migrate to Clarifai REST API and fix face detection pipeline" />
+  </component>
+</project>
