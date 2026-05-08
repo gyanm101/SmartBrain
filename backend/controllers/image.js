@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const PAT = '792ea25429c94b5ab51fa75e9c88e08b';
+const PAT = '';
 
 const handleApiCall = (req, res) => {
   const IMAGE_URL = req.body.input;
