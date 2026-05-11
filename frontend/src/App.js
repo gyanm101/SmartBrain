@@ -24,9 +24,11 @@ const particlesOptions = {
 const initialState = {
   input: '',
   imageUrl: '',
-  box: {},
+  boxes: [],
   route: 'signin',
   isSignedIn: false,
+  isLoading: false,
+  errorMessage: '',
   user: {
     id: '',
     name: '',
@@ -53,28 +55,32 @@ class App extends Component {
   }
 
   calculateFaceLocation = (data) => {
+    console.log("FULL CLARIFAI RESPONSE:", data.outputs);
     const regions = data.outputs?.[0]?.data?.regions;
 
     if (!regions || regions.length === 0) {
       console.log("No face regions found:", data);
-      return {};
+      return [];
     }
-
-    const clarifaiFace = regions[0].region_info.bounding_box;
     const image = document.getElementById('inputimage');
     const width = Number(image.width);
     const height = Number(image.height);
 
-    return {
-      leftCol: clarifaiFace.left_col * width,
-      topRow: clarifaiFace.top_row * height,
-      rightCol: width - (clarifaiFace.right_col * width),
-      bottomRow: height - (clarifaiFace.bottom_row * height)
-    }
-  }
+    return regions.map(region => {
+        const box = region.region_info.bounding_box;
+        console.log("Box", box);
 
-  displayFaceBox = (box) => {
-    this.setState({box: box});
+        return {
+              leftCol: box.left_col * width,
+              topRow: box.top_row * height,
+              rightCol: width - (box.right_col * width),
+              bottomRow: height - (box.bottom_row * height)
+        };
+    });
+  };
+
+  displayFaceBoxes = (boxes) => {
+    this.setState({boxes: boxes});
   }
 
   onInputChange = (event) => {
@@ -82,37 +88,62 @@ class App extends Component {
   }
 
   onButtonSubmit = () => {
-    this.setState({imageUrl: this.state.input});
-      fetch('http://localhost:3000/imageurl', {
-        method: 'post',
+    if(!this.state.input){
+        this.setState({errorMessage: "Please enter an image URL."});
+        return;
+    }
+
+    this.setState({
+        imageUrl: this.state.input,
+        boxes: [],
+        isLoading: true,
+        errorMessage: ''
+    });
+
+  fetch('http://localhost:3000/imageurl', {
+    method: 'post',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({
+      input: this.state.input
+    })
+  })
+  .then(response => response.json())
+  .then(response => {
+  if (response) {
+      fetch('http://localhost:3000/image', {
+        method: 'put',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
-          input: this.state.input
+          id: this.state.user.id
         })
       })
-      .then(response => response.json())
-      .then(response => {
-        if (response) {
-          fetch('http://localhost:3000/image', {
-            method: 'put',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-              id: this.state.user.id
-            })
-          })
-            .then(response => response.json())
-            .then(count => {
-              this.setState(Object.assign(this.state.user, { entries: count}))
-            })
-            .catch(console.log)
+        .then(response => response.json())
+        .then(count => {
+          this.setState(Object.assign(this.state.user, { entries: count}))
+        })
+        .catch(console.log)
 
-        }
-        const box = this.calculateFaceLocation(response);
-        if (box.leftCol !== undefined) {
-          this.displayFaceBox(box);
-        }
-       })
-      .catch(err => console.log(err));
+    }
+    const boxes = this.calculateFaceLocation(response);
+    if (boxes.length === 0) {
+      this.setState({
+        errorMessage: 'No faces found. Try another image.',
+        isLoading: false
+      });
+      return;
+    }
+
+    this.displayFaceBoxes(boxes);
+    this.setState({ isLoading: false });
+
+   })
+  .catch(err => {
+    console.log(err);
+    this.setState({
+      errorMessage: 'Something went wrong. Please try again.',
+      isLoading: false
+    });
+  });
   }
 
   onRouteChange = (route) => {
@@ -125,7 +156,7 @@ class App extends Component {
   }
 
   render() {
-    const { isSignedIn, imageUrl, route, box } = this.state;
+    const { isSignedIn, imageUrl, route, boxes, isLoading, errorMessage } = this.state;
     return (
       <div className="App">
          <Particles className='particles'
@@ -143,7 +174,9 @@ class App extends Component {
                 onInputChange={this.onInputChange}
                 onButtonSubmit={this.onButtonSubmit}
               />
-              <FaceRecognition box={box} imageUrl={imageUrl} />
+              {isLoading && <p className="white f3">Detecting faces...</p>}
+              {errorMessage && <p className="red f4">{errorMessage}</p>}
+              <FaceRecognition boxes={boxes} imageUrl={imageUrl} />
             </div>
           : (
              route === 'signin'

@@ -6,11 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="30d7d60f-3e66-432d-8afd-4a202a921877" name="Changes" comment="Migrate to Clarifai REST API and fix face detection pipeline">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/FaceRecognition/FaceRecognition.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/FaceRecognition/FaceRecognition.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/FaceRecognition/FaceRecognition.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/FaceRecognition/FaceRecognition.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -57,6 +63,7 @@
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/gyanmohanty/Documents/projects/SmartBrain",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.sourceCode",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
   }
